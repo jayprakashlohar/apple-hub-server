@@ -17,10 +17,6 @@ const userSchema = mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  // resetTokenExpiration: {
-  //   type: Date,
-  //   default: null,
-  // },
 });
 
 const UserModel = mongoose.model("user", userSchema);

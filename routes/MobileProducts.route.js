@@ -20,33 +20,6 @@ mobileRouter.get("/:id", async (req, res) => {
   }
 });
 
-//Pagination
-// mobileRouter.get("/", async (req, res) => {
-//   const query = req.query.q;
-//   // let search = req.query.search || "";
-//   const regex = new RegExp(query, "i");
-//   const limit = req.query.limit || 10;
-//   const page = req.query.page || 1;
-//   try {
-//     const data = await AppleProductModel.find({
-//       $or: [{ title: regex }, { brand: regex }, { rate: regex }],
-//       // $and: [{ title: { $regex: search, $options: "i" } }],
-//     });
-//     let start;
-//     let end = page * limit;
-//     if (page == 1) {
-//       start = page * limit - limit - 1;
-//     } else {
-//       start = page * limit - limit;
-//     }
-
-//     let data1 = data.filter((item, ind) => ind >= start && ind < end);
-//     res.send(data1);
-//   } catch (err) {
-//     res.status(500).send(err.message);
-//   }
-// });
-
 mobileRouter.get("/", async (req, res) => {
   try {
     const query = req.query.q || "";
@@ -122,24 +95,3 @@ mobileRouter.delete("/delete/:id", async (req, res) => {
 });
 
 module.exports = { mobileRouter };
-
-// mobileRouter.post("/createproduct", async (req, res) => {
-//   const { imgUrl, title, price, brand, qty } = req.body;
-//   try {
-//     let newProduct = new AppleProductModel({
-//       imgUrl,
-//       title,
-//       price,
-//       brand,
-//       qty,
-//     });
-//     await newProduct.save();
-//     res.status(200).send(newProduct);
-//   } catch (err) {
-//     res.status(400).send(err.message);
-//   }
-// });
-
-// const { limit = 10, page = 1 } = req.query;
-// .limit(limit)
-// .skip((page - 1) * limit);
